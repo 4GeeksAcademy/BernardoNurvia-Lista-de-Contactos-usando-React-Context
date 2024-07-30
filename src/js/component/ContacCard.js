@@ -2,8 +2,12 @@ import React from "react";
 import imgHe from "./../../img/avatarMaker3.png";
 
 
-const ContacCard = () => {
-
+const ContacCard = ({contact, getContacts}) => {
+function deleteContact(id) {
+  fetch("https://playground.4geeks.com/contact/agendas/Bernardo/contacts/"+id,{method:"DELETE"})
+  .then(response=>response.text)
+  .then(data=>getContacts())
+}
   return (
     <div>
       <div className="card mb-3">
@@ -19,21 +23,22 @@ const ContacCard = () => {
           <div className="col-md-8">
             <div className="conatainer card-body ">
               <div className="row ">
-                <h5 className="col card-title">Bernardo Nurvia</h5>
+                <h5 className="col card-title">{contact.name}</h5>
                 <i className="col-1 bi bi-pencil-fill"></i>
-                <i className="col-1 bi bi-trash-fill"></i>
+                <i className="col-1 bi bi-trash-fill" onClick={()=>{
+                  deleteContact(contact.id)
+                }}></i>
               </div>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                  <i className="bi bi-geo-alt-fill"> Address: </i>5842 Hillcrest
-                  Rd
+                  <i className="bi bi-geo-alt-fill"> Address: </i>{contact.address}
                 </li>
                 <li className="list-group-item">
-                  <i className="bi bi-telephone-fill"> Phone: </i>(870) 288-4149
+                  <i className="bi bi-telephone-fill"> Phone: </i>{contact.phone}
                 </li>
                 <li className="list-group-item">
                   <i className="bi bi-envelope-at-fill"> e-mail: </i>
-                  mike.ana@expalme.com
+                  {contact.email}
                 </li>
               </ul>
             </div>
