@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 
 import "../../styles/home.css";
 import ContacCard from "../component/ContacCard";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
+  const { store, actions } = useContext(Context);
   const [contacts, setContacts] = useState([]);
   console.log(contacts);
   function crearAngeda() {
@@ -49,12 +51,12 @@ export const Home = () => {
 
   return (
     <div className="container text-center mt-5">
-      
       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
         <Link to="/addNewContact">
           <button className="mb-2 btn btn-success">Add a new contact</button>
         </Link>
-      </div><h1>Agenda de Bernardo</h1>
+      </div>
+      <h1>Agenda de Bernardo</h1>
       {contacts.map((contact) => {
         return (
           <ContacCard
