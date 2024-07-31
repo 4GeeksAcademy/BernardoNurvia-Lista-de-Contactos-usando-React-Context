@@ -9,51 +9,25 @@ export const AddNewContact = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div>
-      <h2>Add a new contact</h2>
-      <div>
-        <div className="mb-3">
-          <label for="fullName" className="form-label"> Full Name</label>
-          <input type="text" className="form-label" id="fullName"></input>
-          <label for="exampleInputEmail1" className="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-          </div>
-        </div>
-        <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-          />
-        </div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" for="exampleCheck1">
-            Check me out
-          </label>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
+    <div className="container">
+      <h2 className="text-center">Add a new contact</h2>
+      <div className="form">
+        <label className="form-label mt-2" htmlFor="fullNameInput" >Full Name</label>
+        <input className="form-control " type="text" id="fullNameInput" placeholder="Enter Full Name"/>
+        <label className="form-label mt-2" htmlFor="emailInput">Email</label>
+        <input className="form-control" type="email" id="emailInput" placeholder="Enter Email"/>
+        <label className="form-label mt-2" htmlFor="phoneInput">Phone</label>
+        <input className="form-control" type="number" id="phoneInput" placeholder="Enter Phone"/>
+        <label className="form-label mt-2" htmlFor="addrressInput">Address</label>
+        <input className="form-control" type="text" id="addressInput" placeholder="Enter Address" />
+      </div>
+      <div className="d-grid mt-2">
+        <button type="submit" className="btn btn-primary mt-2">
+          Save
         </button>
       </div>
       <Link to="/">
-        <button className="btn btn-primary">Back home</button>
+        <a className="">or get back to contact</a>
       </Link>
     </div>
   );

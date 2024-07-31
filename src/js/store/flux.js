@@ -1,3 +1,5 @@
+import { AddNewContact } from "../views/AddNewContact";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -37,7 +39,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			AddNewContact
 		}
 	};
 };
