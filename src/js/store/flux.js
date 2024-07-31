@@ -4,16 +4,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			addNewContact: [
-				{
-					
+				{			
 						"name": "string",
 						"phone": "string",
 						"email": "string",
 						"address": "string",
-						"id": 0
-					
+						"id": 0					
 				},
 			
+			], 
+			contact: [
+				{
+					"name": "string",
+					"phone": "string",
+					"email": "string",
+					"address": "string",
+					"id": 0		
+				}
 			]
 		},
 		actions: {

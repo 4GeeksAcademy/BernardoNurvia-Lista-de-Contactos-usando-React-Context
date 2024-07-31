@@ -15,7 +15,7 @@ const [inputName, setInputName]= useState ("");
       <div className="form">
         <label className="form-label mt-2" htmlFor="fullNameInput" >Full Name</label>
         <input className="form-control " type="text" id="fullNameInput" placeholder="Enter Full Name" onChange={()=>{
-          setInputName(e.target.value)
+          setInputName(e.target.value), console.log(e.target.value);
         }}/>
         <label className="form-label mt-2" htmlFor="emailInput">Email</label>
         <input className="form-control" type="email" id="emailInput" placeholder="Enter Email"/>
@@ -25,7 +25,9 @@ const [inputName, setInputName]= useState ("");
         <input className="form-control" type="text" id="addressInput" placeholder="Enter Address" />
       </div>
       <div className="d-grid mt-2">
-        <button type="submit" className="btn btn-primary mt-2">
+        <button type="submit" className="btn btn-primary mt-2" onClick={()=>{
+          actions.AddNewContact()
+        }}>
           Save
         </button>
       </div>
