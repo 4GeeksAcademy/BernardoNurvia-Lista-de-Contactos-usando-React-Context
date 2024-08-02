@@ -13,7 +13,7 @@ const ContacCard = ({ contact, getContacts }) => {
       { method: "DELETE" }
     )
       .then((response) => response.text)
-      .then((data) => getContacts());
+      .then((data) => actions.getContacts());
   }
   const navigate = useNavigate()
   return (

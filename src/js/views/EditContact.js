@@ -8,7 +8,7 @@ const EditContact = () => {
   //asi ubico los parametros id dentro de contacts
   console.log(params.idContact);
   //useState para cambiar los input modificados por el user
-  const [name, setName] = useState("");
+  const [name, setName] = useState(""); 
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
