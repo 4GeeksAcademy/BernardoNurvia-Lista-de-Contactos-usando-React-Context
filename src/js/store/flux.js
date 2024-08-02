@@ -13,15 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 			
 			], 
-			contact: [
-				{
-					"name": "string",
-					"phone": "string",
-					"email": "string",
-					"address": "string",
-					"id": 0		
-				}
-			]
+			contacts: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -49,7 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//crea la agenda en el caso que no exista
 			crearAngeda: () => {
-				fetch("https://playground.4geeks.com/contact/agendas/Bernardo", {
+				fetch("https://playground.4geeks.com/contact/agendas/BernardoNurvia", {
 				  method: "POST",
 				})
 				  .then((response) => {
@@ -69,7 +61,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  },
 			  //llama a todos los contactos creados en la agenda
 			  getContacts:() => {
-				fetch("https://playground.4geeks.com/contact/agendas/Bernardo")
+				fetch("https://playground.4geeks.com/contact/agendas/BernardoNurvia")
 				  .then((response) => {
 					console.log(response);
 					if (response.status == 200) {
@@ -79,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				  })
 				  .then((data) => {
-					setContacts(data.contacts);
+					setStore({contacts : data.contacts })
 				  })
 				  .catch((e) => {
 					console.log(e);
@@ -87,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  },
 			  //para crear nuevos contactos
 			  addNewContact: ()=>{
-			  fetch('https://playground.4geeks.com/todo/user/https://playground.4geeks.com/contact/agendas/Bernardo/contacts', {
+			  fetch('https://playground.4geeks.com/todo/user/https://playground.4geeks.com/contact/agendas/BernardoNurvia/contacts', {
 				method: "PUT",
 				body: JSON.stringify(contact),
 				headers: {
@@ -109,6 +101,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  console.log(error);
 			  });
 			},
+			getSingleContact: ()=> {
+				fetch("")
+				.then(()=>{})
+				.then(()=>{})
+				.catch(()=>{})
+			}
 			
 		}
 	};

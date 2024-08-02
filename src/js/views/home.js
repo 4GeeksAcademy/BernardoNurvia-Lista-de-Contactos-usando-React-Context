@@ -10,7 +10,7 @@ export const Home = () => {
   const [contacts, setContacts] = useState([]);
   console.log(contacts);
   function crearAngeda() {
-    fetch("https://playground.4geeks.com/contact/agendas/Bernardo", {
+    fetch("https://playground.4geeks.com/contact/agendas/BernardoNurvia", {
       method: "POST",
     })
       .then((response) => {
@@ -29,7 +29,7 @@ export const Home = () => {
       });
   }
   function getContacts() {
-    fetch("https://playground.4geeks.com/contact/agendas/Bernardo")
+    fetch("https://playground.4geeks.com/contact/agendas/BernardoNurvia")
       .then((response) => {
         console.log(response);
         if (response.status == 200) {
@@ -45,19 +45,16 @@ export const Home = () => {
         console.log(e);
       });
   }
-  useEffect(() => {
-    getContacts();
-  }, []);
-
+  
   return (
     <div className="container text-center mt-5">
       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <Link to="/addNewContact">
+        <Link to="/add-new-contact/">
           <button className="mb-2 btn btn-success">Add a new contact</button>
         </Link>
       </div>
-      <h1>Agenda de Bernardo</h1>
-      {contacts.map((contact) => {
+      <h1>Agenda de Bernardo Nurvia</h1>
+      {store.contacts.map((contact) => {
         return (
           <ContacCard
             contact={contact}
