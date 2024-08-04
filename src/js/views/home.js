@@ -45,15 +45,18 @@ export const Home = () => {
         console.log(e);
       });
   }
-  useEffect
+  useEffect(() => {
+    actions.getContacts();
+  }, []);
   return (
     <div className="container text-center mt-5">
       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+        <h1 className="mt-3 nameAgenda">Agenda de Bernardo Nurvia</h1>
         <Link to="/add-new-contact/">
           <button className="mb-2 btn btn-success">Add a new contact</button>
         </Link>
       </div>
-      <h1>Agenda de Bernardo Nurvia</h1>
+
       {store.contacts.map((contact) => {
         return (
           <ContacCard

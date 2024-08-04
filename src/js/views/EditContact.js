@@ -17,7 +17,7 @@ const EditContact = () => {
     };
 
     fetch(
-      `https://playground.4geeks.com/contact/agendas/BernardoNurvia/contacts/${id}`,
+      `https://playground.4geeks.com/contact/agendas/BernardoNurvia/contacts/${params.idContact}`,
       {
         method: "PUT",
         headers: {
@@ -29,7 +29,9 @@ const EditContact = () => {
       .then((response) => {
         return response.json();
       })
-      .then((data) => {})
+      .then((data) => {
+        console.log(data);
+      })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
       });
@@ -49,6 +51,7 @@ const EditContact = () => {
     setEmail(datosContacto.email);
     setPhone(datosContacto.phone);
     setAddress(datosContacto.address);
+   
   }, []);
 
   return (
