@@ -1,3 +1,4 @@
+import { json } from "react-router";
 import { AddNewContact } from "../views/AddNewContact";
 
 const getState = ({ getStore, getActions, setStore }) => {
@@ -97,6 +98,30 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => {
             console.log(data);
           })
+          .catch((error) => {
+            console.error(
+              "There was a problem with the fetch operation:",
+              error
+            );
+          });
+      },
+
+      //editar contactos
+      editContact: () => {
+        fetch(
+          "https://playground.4geeks.com/contact/agendas/BernardoNurvia/contacts",
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(editContact),
+          }
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {})
           .catch((error) => {
             console.error(
               "There was a problem with the fetch operation:",

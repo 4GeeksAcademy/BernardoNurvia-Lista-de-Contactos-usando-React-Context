@@ -7,8 +7,35 @@ const EditContact = () => {
   const params = useParams();
   //asi ubico los parametros id dentro de contacts
   console.log(params.idContact);
+
+  const handleSave = () => {
+    const editContact = {
+      name: name,
+      email: email,
+      phone: phone,
+      address: address,
+    };
+
+    fetch(
+      `https://playground.4geeks.com/contact/agendas/BernardoNurvia/contacts/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editContact),
+      }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {})
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  };
   //useState para cambiar los input modificados por el user
-  const [name, setName] = useState(""); 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -88,9 +115,7 @@ const EditContact = () => {
             type="submit"
             className="btn btn-primary mt-2"
             //salva cambios llamando a una acction definida en flux.js y devuelve a home usando <Link>
-            onClick={() => {
-              actions.AddNewContact();
-            }}
+            onClick={handleSave}
           >
             Save
           </button>
