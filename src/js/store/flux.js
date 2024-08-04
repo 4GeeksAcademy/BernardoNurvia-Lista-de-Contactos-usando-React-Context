@@ -52,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           })
           .then((data) => {
-            getContacts();
+            getActions().getContacts();
           })
           .catch((e) => {
             console.log(e);
@@ -66,7 +66,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             if (response.status == 200) {
               return response.json();
             } else {
-              crearAngeda();
+              getActions().crearAngeda();
             }
           })
           .then((data) => {
@@ -79,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       //para crear nuevos contactos
       addNewContact: () => {
         fetch(
-          "https://playground.4geeks.com/todo/user/https://playground.4geeks.com/contact/agendas/BernardoNurvia/contacts",
+          "https://playground.4geeks.com/contact/agendas/BernardoNurvia/contacts",
           {
             method: "POST",
             headers: {

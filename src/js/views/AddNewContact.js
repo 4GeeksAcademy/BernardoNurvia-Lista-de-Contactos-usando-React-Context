@@ -18,8 +18,8 @@ export const AddNewContact = () => {
       email: inputEmail,
       phone: inputPhone,
       address: inputAddress,
-    }; console.log(newContact);
-    fetch("https://playground.4geeks.com/todo/user/https://playground.4geeks.com/contact/agendas/BernardoNurvia/contacts", {
+    };
+    fetch("https://playground.4geeks.com/contact/agendas/BernardoNurvia/contacts", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ export const AddNewContact = () => {
       })
       .then(data => {
         console.log('Contact added:', data);
-        actions.AddNewContact(data); // Actualizar el estado global con el nuevo contacto
+        actions.addNewContact(data); actions.getContacts(); // Actualizar el estado global con el nuevo contacto
       })
       .catch(error => {
         console.error('There was a problem with the fetch operation:', error);

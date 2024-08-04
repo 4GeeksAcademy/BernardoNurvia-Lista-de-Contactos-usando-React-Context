@@ -45,7 +45,7 @@ export const Home = () => {
         console.log(e);
       });
   }
-  
+  useEffect
   return (
     <div className="container text-center mt-5">
       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
